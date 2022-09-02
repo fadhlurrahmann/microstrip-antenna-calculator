@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'app-design.ui'
+# Form implementation generated from reading ui file 'app_design.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.4
 #
@@ -14,7 +14,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(462, 352)
+        Dialog.resize(462, 353)
         self.dielectricConstant = QtWidgets.QLineEdit(Dialog)
         self.dielectricConstant.setGeometry(QtCore.QRect(40, 50, 113, 20))
         self.dielectricConstant.setObjectName("dielectricConstant")
@@ -102,16 +102,8 @@ class Ui_Dialog(object):
         self.label_8 = QtWidgets.QLabel(Dialog)
         self.label_8.setGeometry(QtCore.QRect(270, 310, 61, 16))
         self.label_8.setObjectName("label_8")
-        self.imageCircular = QtWidgets.QLabel(Dialog)
-        self.imageCircular.setEnabled(True)
-        self.imageCircular.setGeometry(QtCore.QRect(260, 10, 191, 191))
-        self.imageCircular.setFrameShape(QtWidgets.QFrame.StyledPanel)
-        self.imageCircular.setFrameShadow(QtWidgets.QFrame.Plain)
-        self.imageCircular.setText("")
-        self.imageCircular.setPixmap(QtGui.QPixmap("assets/circular.PNG"))
-        self.imageCircular.setObjectName("imageCircular")
         self.imageRectangular = QtWidgets.QLabel(Dialog)
-        self.imageRectangular.setGeometry(QtCore.QRect(260, 10, 190, 190))
+        self.imageRectangular.setGeometry(QtCore.QRect(260, 20, 191, 171))
         self.imageRectangular.setText("")
         self.imageRectangular.setPixmap(QtGui.QPixmap("assets/rectangular.png"))
         self.imageRectangular.setObjectName("imageRectangular")
@@ -121,13 +113,18 @@ class Ui_Dialog(object):
         self.comboFreq = QtWidgets.QComboBox(Dialog)
         self.comboFreq.setGeometry(QtCore.QRect(150, 160, 41, 22))
         self.comboFreq.setObjectName("comboFreq")
+        self.imageCircular = QtWidgets.QLabel(Dialog)
+        self.imageCircular.setGeometry(QtCore.QRect(260, 20, 191, 171))
+        self.imageCircular.setText("")
+        self.imageCircular.setPixmap(QtGui.QPixmap("assets/circular.PNG"))
+        self.imageCircular.setObjectName("imageCircular")
 
         self.retranslateUi(Dialog)
         QtCore.QMetaObject.connectSlotsByName(Dialog)
 
     def retranslateUi(self, Dialog):
         _translate = QtCore.QCoreApplication.translate
-        Dialog.setWindowTitle(_translate("Dialog", "Dialog"))
+        Dialog.setWindowTitle(_translate("Dialog", "Microstrip Antenna Calculator"))
         self.label.setText(_translate("Dialog", "Dielectric Constant"))
         self.label_2.setText(_translate("Dialog", "Dielectric Height "))
         self.label_3.setText(_translate("Dialog", "Resonant Frequency"))
