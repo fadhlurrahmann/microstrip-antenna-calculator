@@ -1,3 +1,4 @@
+from cgitb import reset
 from math import log, pi, sqrt
 import sys
 from PyQt5.QtWidgets import QDialog, QApplication
@@ -34,6 +35,8 @@ class Microstrip(QDialog):
         self.ui = Ui_Dialog()
         self.ui.setupUi(self)
         
+        self.ui.labelError.setVisible(False)
+
         self.ui.comboDiel.addItem('mm')
         self.ui.comboDiel.addItem('mil')
         self.ui.comboFreq.addItem('GHz')
@@ -67,33 +70,40 @@ class Microstrip(QDialog):
         self.ui.imageTriangular.setHidden(False)
 
     def calculate(self):
-        eps = float(self.ui.dielectricConstant.text())
-        h = float(self.ui.dielectricHeight.text()) * 1e-3 if self.ui.comboDiel.currentText() == 'mm' else float(self.ui.dielectricHeight.text()) * 2.54e-5
-        freq = float(self.ui.frequency.text()) * 1e9 if self.ui.comboFreq.currentText() == 'GHz' else float(self.ui.frequency.text()) * 1e6
+        try:
+            eps = float(self.ui.dielectricConstant.text())
+            h = float(self.ui.dielectricHeight.text()) * 1e-3 if self.ui.comboDiel.currentText() == 'mm' else float(self.ui.dielectricHeight.text()) * 2.54e-5
+            freq = float(self.ui.frequency.text()) * 1e9 if self.ui.comboFreq.currentText() == 'GHz' else float(self.ui.frequency.text()) * 1e6
+        
+            if self.ui.radioRectangular.isChecked() == True:
+                result_w, result_l = rectangular(eps, h, freq)
+                self.ui.resultWidth.setText("%.2f" % result_w)
+                self.ui.resultLength.setText("%.2f" % result_l)
 
-        if self.ui.radioRectangular.isChecked() == True:
-            result_w, result_l = rectangular(eps, h, freq)
-            self.ui.resultWidth.setText("%.2f" % result_w)
-            self.ui.resultLength.setText("%.2f" % result_l)
+                self.ui.resultRadius.clear()
+                self.ui.resultSide.clear()
 
-            self.ui.resultRadius.clear()
-            self.ui.resultSide.clear()
+            if self.ui.radioCircular.isChecked() == True:
+                r = circular(eps, h, freq)
+                self.ui.resultRadius.setText("%.2f" % r)
 
-        if self.ui.radioCircular.isChecked() == True:
-            r = circular(eps, h, freq)
-            self.ui.resultRadius.setText("%.2f" % r)
+                self.ui.resultWidth.clear()
+                self.ui.resultLength.clear()
+                self.ui.resultSide.clear()
 
-            self.ui.resultWidth.clear()
-            self.ui.resultLength.clear()
-            self.ui.resultSide.clear()
+            if self.ui.radioTriangular.isChecked() == True:
+                a = triangular(eps, h, freq)
+                self.ui.resultSide.setText("%.2f" % a)
 
-        if self.ui.radioTriangular.isChecked() == True:
-            a = triangular(eps, h, freq)
-            self.ui.resultSide.setText("%.2f" % a)
+                self.ui.resultWidth.clear()
+                self.ui.resultLength.clear()
+                self.ui.resultRadius.clear()
 
-            self.ui.resultWidth.clear()
-            self.ui.resultLength.clear()
-            self.ui.resultRadius.clear()
+            self.ui.labelError.setVisible(False)
+
+        except:
+            self.ui.labelError.setVisible(True)
+            self.reset()
 
     def reset(self):
         self.ui.dielectricConstant.clear()
