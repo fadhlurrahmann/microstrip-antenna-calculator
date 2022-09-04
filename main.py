@@ -43,9 +43,7 @@ class Microstrip(QDialog):
         self.ui.comboFreq.addItem('MHz')
 
         self.ui.radioRectangular.click()
-        self.ui.imageRectangular.setHidden(False)
-        self.ui.imageCircular.hide()
-        self.ui.imageTriangular.hide()
+        self.imageRectangular()
         self.ui.radioRectangular.clicked.connect(self.imageRectangular)
         self.ui.radioCircular.clicked.connect(self.imageCircular)
         self.ui.radioTriangular.clicked.connect(self.imageTriangular)
