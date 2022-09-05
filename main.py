@@ -1,30 +1,29 @@
-from cgitb import reset
-from math import log, pi, sqrt
 import sys
+from math import log, pi, sqrt
 from PyQt5.QtWidgets import QDialog, QApplication
 from app_design import *
 
+# rectangular patch formula
 def rectangular(eps, h, freq):
     w = 3e8 / ((2 * freq) * sqrt((eps + 1)/2))
     eff = ((eps + 1) / 2) + ((eps - 1) / 2) * (1 + 12 * (h/w)) ** -0.5
     leff = 3e8 / ((2 * freq) * sqrt(eff))
     delta_l = 0.412 * h * (((eff + 0.3) * (w/h + 0.264)) / ((eff - 0.258) * (w/h + 0.8)))
     l = leff - 2 * delta_l
-    
     w = w * 1e3
     l = l * 1e3
     return w, l
 
+# circular patch formula
 def circular(eps, h, freq):
     F = 8.791 * (1e9 / (freq * sqrt(eps)))
     r = F / sqrt((1 + ((2 * h) / (pi * eps * F)) * (log((pi * F) / (2 * h)) + 1.7726)))
-
     r = r * 10
     return r
 
+# triangular patch formula
 def triangular(eps, h, freq):
     a = (2 * 3e8) / ((3 * freq) * sqrt(eps))
-
     a = a * 1e3
     return a
 
@@ -34,9 +33,14 @@ class Microstrip(QDialog):
         super().__init__()
         self.ui = Ui_Dialog()
         self.ui.setupUi(self)
-        
+        self.setWindowFlags(
+            QtCore.Qt.Window |
+            QtCore.Qt.CustomizeWindowHint |
+            QtCore.Qt.WindowTitleHint |
+            QtCore.Qt.WindowCloseButtonHint |
+            QtCore.Qt.WindowStaysOnTopHint
+        )
         self.ui.labelError.setVisible(False)
-
         self.ui.comboDiel.addItem('mm')
         self.ui.comboDiel.addItem('mil')
         self.ui.comboFreq.addItem('GHz')

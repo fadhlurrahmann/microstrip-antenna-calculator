@@ -1,16 +1,18 @@
+import sys
+import os
 from PyQt5 import QtCore, QtGui, QtWidgets
-
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
         Dialog.setObjectName("Dialog")
-        Dialog.resize(461, 362)
+        Dialog.setFixedSize(461, 362) # fix window size
         Dialog.setAutoFillBackground(False)
         Dialog.setStyleSheet("")
+        Dialog.setWindowIcon(QtGui.QIcon(self.resource_path("assets/microstrip.ico"))) # add icon on title bar
         self.imageTriangular = QtWidgets.QLabel(Dialog)
         self.imageTriangular.setGeometry(QtCore.QRect(250, 0, 191, 191))
         self.imageTriangular.setText("")
-        self.imageTriangular.setPixmap(QtGui.QPixmap("assets/triangular.PNG"))
+        self.imageTriangular.setPixmap(QtGui.QPixmap(self.resource_path("assets/triangular.PNG")))
         self.imageTriangular.setObjectName("imageTriangular")
         self.comboBox = QtWidgets.QComboBox(Dialog)
         self.comboBox.setGeometry(QtCore.QRect(-260, 200, 69, 22))
@@ -18,12 +20,12 @@ class Ui_Dialog(object):
         self.imageRectangular = QtWidgets.QLabel(Dialog)
         self.imageRectangular.setGeometry(QtCore.QRect(250, 10, 191, 171))
         self.imageRectangular.setText("")
-        self.imageRectangular.setPixmap(QtGui.QPixmap("assets/rectangular.png"))
+        self.imageRectangular.setPixmap(QtGui.QPixmap(self.resource_path("assets/rectangular.png")))
         self.imageRectangular.setObjectName("imageRectangular")
         self.imageCircular = QtWidgets.QLabel(Dialog)
         self.imageCircular.setGeometry(QtCore.QRect(250, 10, 191, 171))
         self.imageCircular.setText("")
-        self.imageCircular.setPixmap(QtGui.QPixmap("assets/circular.PNG"))
+        self.imageCircular.setPixmap(QtGui.QPixmap(self.resource_path("assets/circular.PNG")))
         self.imageCircular.setObjectName("imageCircular")
         self.groupBox = QtWidgets.QGroupBox(Dialog)
         self.groupBox.setGeometry(QtCore.QRect(0, 0, 231, 361))
@@ -206,3 +208,12 @@ class Ui_Dialog(object):
         self.label_8.setText(_translate("Dialog", "a (mm)"))
         self.label_6.setText(_translate("Dialog", ":"))
         self.label_7.setText(_translate("Dialog", "r (mm)"))
+
+    def resource_path(self, relative_path):
+        """ Get absolute path to resource, works for dev and for PyInstaller """
+        if getattr(sys, 'frozen', False) and hasattr(sys, '_MEIPASS'):
+            base_path = sys._MEIPASS
+        else:
+            base_path = os.path.abspath(".")
+
+        return os.path.join(base_path, relative_path)
