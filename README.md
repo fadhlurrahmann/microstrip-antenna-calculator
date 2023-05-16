@@ -2,7 +2,7 @@
 
 ## **Library and Installation**
 
-### Install library `PyQt5`
+##### Install library `PyQt5`
 ```
 pip install PyQt5
 ```
