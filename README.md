@@ -1,5 +1,4 @@
 <h1><strong><center>Library</center></strong></h1>
-<h3><strong>Contents</strong></h3>
 
 Intall library `PyQt5`
 ```
