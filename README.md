@@ -3,7 +3,7 @@
 
 
 
-## **Library and Installation**
+## Library and Installation
 
 ##### Install library `PyQt5`
 ```
