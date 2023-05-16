@@ -22,13 +22,13 @@ python main.py
 
 <div class="row">
   <div class="column">
-    <img src="https://a.fsdn.com/con/app/proj/microstrip-antenna-calculator/screenshots/Capture-130e44b8.PNG/max/max/1" style="width:70%">
+    <img src="https://a.fsdn.com/con/app/proj/microstrip-antenna-calculator/screenshots/Capture-130e44b8.PNG/max/max/1" style="width:30%">
   </div>
   <div class="column">
-    <img src="https://a.fsdn.com/con/app/proj/microstrip-antenna-calculator/screenshots/Circular-1b9e4a2e.PNG/max/max/1" style="width:70%">
+    <img src="https://a.fsdn.com/con/app/proj/microstrip-antenna-calculator/screenshots/Circular-1b9e4a2e.PNG/max/max/1" style="width:30%">
   </div>
   <div class="column">
-    <img src="https://a.fsdn.com/con/app/proj/microstrip-antenna-calculator/screenshots/triangular-22dab390.PNG/max/max/1" style="width:70%">
+    <img src="https://a.fsdn.com/con/app/proj/microstrip-antenna-calculator/screenshots/triangular-22dab390.PNG/max/max/1" style="width:30%">
   </div>
 </div>
 
