@@ -1,8 +1,8 @@
 <h1><strong><center>Microstrip Antenna Calculator</center></strong></h1>
 
-<h2><strong><center>Library and Installation</center></strong></h2>
+##Library and Installation
 
-Install library `PyQt5`
+###Install library `PyQt5`
 ```
 pip install PyQt5
 ```
