@@ -1,6 +1,10 @@
 # **Microstrip Antenna Calculator** 
 [![Download microstrip-antenna-calculator](https://img.shields.io/sourceforge/dt/microstrip-antenna-calculator.svg)](https://sourceforge.net/projects/microstrip-antenna-calculator/files/latest/download)
    
+This antenna patch calculator can simplify the calculation of antenna dimensions for rectangular, circular and triangular shapes.
+
+By inputting the `dielectric constant`, `dielectric height`, and `resonant frequency` of the antenna, you will immediately get the dimensional values for the three antenna shapes.
+
 
 ### **Library and Installation**
 
@@ -12,7 +16,7 @@ pip install PyQt5
 ```
 python main.py
 ```
-### ****
+
 
 ### **Download Executable File**
 
