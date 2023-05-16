@@ -1,6 +1,7 @@
 <h1><strong><center>Library</center></strong></h1>
+- PyQt5
 
-Intall library `PyQt5`
+Install library `PyQt5`
 ```
 pip install PyQt5
 ```
