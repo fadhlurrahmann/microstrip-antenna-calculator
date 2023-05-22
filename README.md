@@ -36,7 +36,7 @@ python main.py
 
 ### **Download Executable File**
 
-You can download the executable file in `SOURCEFORGE` by clicking the button below:
+You can download the executable file in `SourceForge` by clicking the button below:
 
 [![Download microstrip-antenna-calculator](https://a.fsdn.com/con/app/sf-download-button)](https://sourceforge.net/projects/microstrip-antenna-calculator/files/latest/download) 
 
